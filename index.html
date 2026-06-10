@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenna Hasenkampf — Product Leader</title>
+  <meta name="description" content="Product leader with design depth and AI expertise. I build products that feel right, scale cleanly, and handle AI complexity honestly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1D3045;
+      --navy-mid:  #2D4560;
+      --teal:      #2AB5A5;
+      --teal-dark: #1F9085;
+      --bg:        #F9F8F5;
+      --white:     #FFFFFF;
+      --text:      #1A1A2A;
+      --muted:     #5C6475;
+      --border:    #E4E0D8;
+      --card-bg:   #FFFFFF;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Layout helpers ── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+    section:nth-child(odd) { background: var(--bg); }
+    section:nth-child(even) { background: var(--white); }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(249, 248, 245, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--teal-dark) !important; color: var(--white) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 160px 0 96px;
+      background: var(--navy);
+    }
+
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.85);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: var(--white);
+    }
+
+    /* Hero photo */
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo-placeholder {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8125rem;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .hero-photo-placeholder svg {
+      opacity: 0.4;
+    }
+
+    /* Stats strip */
+    .hero-stats {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+
+    .case-stack {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .case-stack-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 8px;
+    }
+
+    .case-stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ── What I Do ── */
+    #skills { background: var(--bg); }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 24px rgba(42, 181, 165, 0.1);
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(42, 181, 165, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--teal);
+    }
+
+    .pillar-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .pillar-desc {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--navy-mid);
+      background: rgba(29, 48, 69, 0.07);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── Work ── */
+    #work { background: var(--white); }
+
+    .work-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .case-card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .case-card:hover {
+      border-color: rgba(42, 181, 165, 0.4);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    .case-meta {}
+
+    .case-org {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .case-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .case-role {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .case-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .metric {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .metric-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .case-body {}
+
+    .case-summary {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .case-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-bullets li {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .case-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.875rem;
+    }
+
+    .case-view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .case-view-link:hover { color: var(--teal); gap: 10px; }
+
+    /* ── Writing ── */
+    #writing { background: var(--bg); }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .writing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .writing-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .writing-pub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .writing-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+
+    .writing-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .writing-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .writing-link:hover { color: var(--teal-dark); }
+
+    .writing-cta {
+      text-align: center;
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .writing-cta h3 {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .writing-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 440px;
+    }
+
+    /* ── About ── */
+    #about { background: var(--white); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1.0625rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-text strong { color: var(--navy); font-weight: 600; }
+
+    .about-sidebar {}
+
+    .sidebar-block {
+      margin-bottom: 36px;
+    }
+
+    .sidebar-block:last-child { margin-bottom: 0; }
+
+    .sidebar-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .sidebar-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* ── Contact ── */
+    #contact { background: var(--navy); padding: 96px 0; }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-inner .section-label { color: var(--teal); }
+
+    .contact-inner h2 { color: var(--white); }
+
+    .contact-inner p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .contact-email {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .contact-email a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-email a:hover { color: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      background: #111D28;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    footer a { color: rgba(255,255,255,0.45); }
+    footer a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── Mobile nav drawer ── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Work samples dropdown ── */
+    .nav-item-dropdown { position: relative; }
+
+    .nav-item-dropdown > a::after {
+      content: ' ▾';
+      font-size: 0.65em;
+      opacity: 0.55;
+      vertical-align: middle;
+    }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      min-width: 190px;
+      padding: 6px 0;
+      z-index: 200;
+    }
+
+    .nav-item-dropdown:hover .nav-dropdown,
+    .nav-item-dropdown:focus-within .nav-dropdown {
+      display: block;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown a:hover {
+      color: var(--navy);
+      background: var(--bg);
+    }
+
+    .mobile-nav-sub {
+      font-size: 0.85rem !important;
+      padding-left: 20px !important;
+      color: var(--muted) !important;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 1rem; font-weight: 500; color: var(--navy); padding: 8px 0; border-bottom: 1px solid var(--border); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .case-card { grid-template-columns: 1fr; }
+      .case-metrics { flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      .metric { flex-direction: column; gap: 4px; }
+      .writing-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 64px 0; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .contact-actions { flex-direction: column; align-items: center; }
+    }
+
+    /* ── Testimonials ── */
+    #testimonials {
+      background: var(--navy) !important;
+      padding: 0 0 80px;
+      text-align: center;
+    }
+    .testimonials-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .quote-slide { display: none; }
+    .quote-slide.active {
+      display: block;
+      animation: quoteFade 0.5s ease;
+    }
+    @keyframes quoteFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .quote-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      line-height: 1.6;
+      color: var(--white);
+      margin: 0 0 20px;
+    }
+    .quote-text::before { content: '\201C'; color: var(--teal); }
+    .quote-text::after  { content: '\201D'; color: var(--teal); }
+    .quote-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .quote-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .quote-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s ease;
+    }
+    .quote-dot.active { background: var(--teal); }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">Jenna Hasenkampf</a>
+      <ul class="nav-links">
+        <li><a href="#skills">Expertise</a></li>
+        <li class="nav-item-dropdown">
+          <a href="#work">Work</a>
+          <div class="nav-dropdown">
+            <a href="curriculum-sample.html" target="_blank" rel="noopener">AI Curriculum Sample</a>
+            <a href="research-preview.html" target="_blank" rel="noopener">Research Preview</a>
+          </div>
+        </li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#skills" onclick="toggleMobileNav()">Expertise</a>
+    <a href="#work" onclick="toggleMobileNav()">Work</a>
+    <a href="curriculum-sample.html" target="_blank" rel="noopener" onclick="toggleMobileNav()" class="mobile-nav-sub">↳ AI Curriculum Sample</a>
+    <a href="research-preview.html" target="_blank" rel="noopener" onclick="toggleMobileNav()" class="mobile-nav-sub">↳ Research Preview</a>
+    <a href="#writing" onclick="toggleMobileNav()">Writing</a>
+    <a href="#about" onclick="toggleMobileNav()">About</a>
+    <a href="#contact" onclick="toggleMobileNav()">Get in Touch</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Product Leader · Design Depth · AI Expertise</p>
+          <h1 class="hero-headline">
+            I ship AI products that <em>actually work</em> — from governance to scaled deployment.
+          </h1>
+          <p class="hero-sub">
+            I've built generative AI features at 14M-user scale, shipped a full AI certification platform solo, and led responsible AI from policy through GTM. I work best at startups and growth-stage companies where strategy and execution aren't separate jobs.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary">See My Work</a>
+            <a href="#contact" class="btn-ghost">Work Together</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testimonials-inner">
+      <div class="quote-carousel" id="quoteCarousel">
+        <div class="quote-slide active">
+          <p class="quote-text">She has demonstrated an impressive ability to synthesize complexity, and then break down how to proceed, and then follow through on getting it done — even with challenges like no design partner and shared engineers.</p>
+          <p class="quote-role">Sr Director of Product Management &middot; Discovery Education</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">Her strategic vision and ability to communicate effectively with both technical teams and business stakeholders were key factors in the project's success.</p>
+          <p class="quote-role">VP, Data, Research &amp; Analytics &middot; Discovery Education</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">Jenna seamlessly integrated into the team, forming strong and effective relationships with her colleagues. Her ability to quickly build rapport and trust was impressive.</p>
+          <p class="quote-role">Lead Software Engineer, ML/AI R&amp;D &middot; Discovery Education</p>
+        </div>
+        <div class="quote-slide">
+          <p class="quote-text">She has done an amazing job at collaborating, listening, and taking in technical feedback to work with the stakeholders to shape a deliverable which they are excited for in a timeline that works for all parties, all while protecting our time as developers.</p>
+          <p class="quote-role">Lead Software Engineer &middot; Discovery Education</p>
+        </div>
+      </div>
+      <div class="quote-dots">
+        <button class="quote-dot active" data-index="0" aria-label="Quote 1"></button>
+        <button class="quote-dot" data-index="1" aria-label="Quote 2"></button>
+        <button class="quote-dot" data-index="2" aria-label="Quote 3"></button>
+        <button class="quote-dot" data-index="3" aria-label="Quote 4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">What I Do</p>
+      <h2>Strong product instincts, deep AI expertise</h2>
+      <p class="section-intro">The best products feel inevitable — clear to users, solid enough to scale. Getting there requires design instinct, scale judgment, and the technical depth to understand what you're actually working with your team to build. AI products make every one of those tradeoffs harder and more expensive to get wrong. I've shipped enough of them to know where the risk actually lives.</p>
+
+      <div class="pillars-grid">
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Product Design & UX Instinct</h3>
+          <p class="pillar-desc">Good design isn't decoration — it's a product decision. I approach every feature with attention to information hierarchy, friction points, and whether users can find what they need without being told to look. That instinct shapes my requirements, my feedback to engineers, and my read on whether something is actually done.</p>
+          <div class="pillar-tags">
+            <span class="tag">UX-first product design</span>
+            <span class="tag">Information architecture</span>
+            <span class="tag">Discoverability</span>
+            <span class="tag">User feedback loops</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="pillar-title">0→1 Execution & Scale</h3>
+          <p class="pillar-desc">I've built from blank-page problem through 14M-user platform — defining requirements, partnering directly with engineering and data science, owning the roadmap, and running the structured evaluation loops that hold quality as the product grows. Strategy and execution in the same role, by choice.</p>
+          <div class="pillar-tags">
+            <span class="tag">0→1 product ownership</span>
+            <span class="tag">Roadmap strategy</span>
+            <span class="tag">ML partnerships</span>
+            <span class="tag">Agile execution</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="pillar-title">AI Depth & Governance</h3>
+          <p class="pillar-desc">I've written AI policy, designed bias evaluation frameworks, built gold-standard training datasets, co-authored acceptable use terms, and partnered directly on ML model development — from data decisions through deployment. Governance isn't a blocker. It's part of the design.</p>
+          <div class="pillar-tags">
+            <span class="tag">AI policy authorship</span>
+            <span class="tag">LLM pipeline design</span>
+            <span class="tag">Bias evaluation</span>
+            <span class="tag">Responsible deployment</span>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Scaled GTM & Growth</h3>
+          <p class="pillar-desc">A technically excellent product can still fail if nobody knows what it is, who it's for, or why it matters. Thirteen years in brand and marketing — growing Nike Women organically from 30k to 1m+ followers in a year, leading a $1.5M MINI Cooper product launch — gave me instincts most PMs don't have. I bring that into every launch.</p>
+          <div class="pillar-tags">
+            <span class="tag">GTM strategy</span>
+            <span class="tag">Funnel instrumentation</span>
+            <span class="tag">Brand & positioning</span>
+            <span class="tag">Adoption measurement</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <p class="section-label">Featured Work</p>
+      <h2>Projects that shipped and scaled</h2>
+      <p class="section-intro">Product leadership across enterprise AI, curriculum and platform design, original research, and solo building.</p>
+
+      <div class="work-grid">
+
+        <!-- Discovery Education -->
+        <div class="case-card">
+          <div class="case-meta">
+            <p class="case-org">Discovery Education</p>
+            <h3 class="case-title">AI Product Leadership at Discovery Education</h3>
+            <p class="case-role">Product Manager · 2022–2025</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="metric-num">22%</span>
+                <span class="metric-label">of U.S. K–12 districts on platform</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">200+</span>
+                <span class="metric-label">schools in closed beta</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">90%</span>
+                <span class="metric-label">ML model accuracy achieved</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">40%</span>
+                <span class="metric-label">of teachers using assessment editing tool</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-summary">Joined as the company's first Assessment PM, then first AI/ML PM — built 0→1 generative AI product for a K-12 global platform. Owned the full lifecycle: governance frameworks and AI policy, UX design and teacher feedback loops, ML model evaluation, and launch to a 14M-user platform.</p>
+            <ul class="case-bullets">
+              <li>Authored the company's first AI policy — defining acceptable use, data practices, and governance guardrails with no internal template to work from; later co-authored terms and supported enterprise RFPs on FERPA, data retention, and acceptable use</li>
+              <li>Designed and ran a 200+ school closed beta — direct teacher feedback loops, bias evaluation, and reading-level controls</li>
+              <li>Partnered with data science on ML model development — defined evaluation criteria, built gold-standard datasets, and ensembled models to 90% accuracy</li>
+              <li>Launched 0→1 editing tool to 40% organic adoption and 1,000+ monthly active sessions within 4–5 months with fractional engineering team through rigorous feature prioritization and user-centered design</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AI-Powered Women -->
+        <div class="case-card">
+          <div class="case-meta">
+            <p class="case-org">AI-Powered Women</p>
+            <h3 class="case-title">AI Certification Platform for Female Executives & Entrepreneurs</h3>
+            <p class="case-role">Lead Product Manager, AI learning Platform & Content Strategy · 2025–Present</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="metric-num">450</span>
+                <span class="metric-label">certifications issued</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">3</span>
+                <span class="metric-label">0-1 Certification tracks created</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-summary">Fractional PM for an MIT-affiliated startup transitioning from a flagship conference model to a year-round AI learning ecosystem. Designed, wrote, and built the full certification curriculum solo — custom-designed Kajabi module pages, role-specific frameworks, and research-backed content across three topic areas.</p>
+            <ul class="case-bullets">
+              <li>Designed and launched three mult-module AI certificationd with assessments — Human-Centered AI Leadership, Vibe Coding, and an AI Leadership Playbook — for a flagship conference held at MIT; 450 certifications issued to 1,000+ attendees</li>
+              <li>Built for C-suite application, not just literacy — role-differentiated frameworks (founder, corporate leader, team member) with governance and equity embedded throughout rather than siloed</li>
+              <li>Owned the full UX and page architecture in Kajabi — wrote, researched, and designed every certification solo</li>
+            </ul>
+            <a href="curriculum-sample.html" class="case-view-link">View Sample Modules →</a>
+          </div>
+        </div>
+
+        <!-- EdSafe Fellowship -->
+        <div class="case-card">
+          <div class="case-meta">
+            <p class="case-org">EdSafe AI Alliance</p>
+            <h3 class="case-title">Parent AI Literacy Research & Framework</h3>
+            <p class="case-role">2025 Women in AI Fellow · 2025–2026</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="metric-num">80</span>
+                <span class="metric-label">survey respondents</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">8</span>
+                <span class="metric-label">in-depth interviews</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-summary">Selected for a global cohort of 30 for the 2025 EdSafe AI Alliance - Women in AI Fellowship. Leading a solo mixed-methods capstone on parent AI literacy — addressing what I called "the parent-shaped hole" in K-12 AI education.</p>
+            <ul class="case-bullets">
+              <li>Conducted 80-respondent survey and 8 in-depth interviews — key findings: 13% of parents received a clear AI policy from school, 48% don't know if their kids use AI for schoolwork, and only 12% received guidance on negative impacts</li>
+              <li>Triangulated primary research with CDT, Common Sense Media, and Walton-GSV-Gallup; briefed directly by EU AI Act implementation, Khan Academy AI product strategy, and Families + AI</li>
+              <li>Publishing a practitioner framework for district leaders and edtech executives on parent AI literacy, child-specific risk/benefit profiles, and implementation pathways</li>
+            </ul>
+            <a href="research-preview.html" class="case-view-link">View Published Overview →</a>
+          </div>
+        </div>
+
+        <!-- CraftYourImpact -->
+        <div class="case-card">
+          <div class="case-meta">
+            <p class="case-org">CraftYourImpact</p>
+            <h3 class="case-title">Solo-Built AI Performance Review Tool</h3>
+            <p class="case-role">Founder · 2026</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="metric-num">4-step</span>
+                <span class="metric-label">LLM pipeline</span>
+              </div>
+              <div class="metric">
+                <span class="metric-num">~32%</span>
+                <span class="metric-label">cost reduction via model routing</span>
+              </div>
+            </div>
+            <div class="case-stack">
+              <p class="case-stack-label">Stack</p>
+              <div class="case-stack-tags">
+                <span class="tag">Claude / Anthropic API</span>
+                <span class="tag">Claude Code</span>
+                <span class="tag">Cloudflare Workers</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">PostHog</span>
+                <span class="tag">GitHub</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="case-summary">Built end-to-end solo — product, design, and technical direction. Transforms scattered work documentation into polished performance review narratives. In pre-launch validation.</p>
+            <ul class="case-bullets">
+              <li>Designed a 4-step LLM pipeline (extraction → synthesis → bias check → gap analysis); diagnosed Claude Code defaulting every API call to Sonnet and rebuilt as three-model routing — ~32% cost reduction, eliminated rate limit issues, no loss in output quality</li>
+              <li>Built the full production stack solo — Cloudflare Worker API proxy, Supabase, PostHog observability, and DEI-aware bias detection via JSON patch</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="container">
+      <p class="section-label">Writing</p>
+      <h2>Thinking out loud about AI</h2>
+      <p class="section-intro">Writing about AI to share learnings and expand access to working with AI — the tradeoffs, the failure modes, and the things the 30-seconds-to-production crowd glosses over.</p>
+
+      <div class="writing-grid">
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">We're Prompting Wrong</h4>
+          <p class="writing-desc">Role prompting doesn't improve accuracy — there's research on this. Here's what actually works, and how I changed my own workflow after one interview changed my approach entirely.</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">Research & Content Writing With Claude</h4>
+          <p class="writing-desc">A step-by-step walkthrough of how I used Claude to research, draft, and iteratively improve five modules of AI certification content — including making it self-critique its own work until it graded itself an A-.</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">Be Honest</h4>
+          <p class="writing-desc">I asked Gemini to solve its own energy consumption problem. It deflected, greenwashed, and finally — after enough pushing — gave real answers. The transcript is instructive.</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">You Vibe Coded a Thing. Now What?</h4>
+          <p class="writing-desc">Took a prototype from Google AI Studio to production — and documented everything the "30 seconds to production" crowd glosses over: staging environments, model performance tracking, Terms versioning, rate limiting, user flow architecture. "AI will find the most efficient path. It won't default to the most thorough path."</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">The More Models the Merrier?</h4>
+          <p class="writing-desc">CraftYourImpact was timing out. Root cause: Claude Code defaulted every API call to Sonnet — no questions asked. Here's how I diagnosed the problem, redesigned a three-model routing system (Haiku for extraction, Opus for synthesis), and cut costs ~32% without sacrificing quality. The most direct path in AI is not always the right one.</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+        <div class="writing-card">
+          <p class="writing-pub">Not Another AI — Substack</p>
+          <h4 class="writing-title">Writing Your Performance Review Doesn't Have to Suck</h4>
+          <p class="writing-desc">A three-step AI workflow for gathering a year of scattered work evidence, running a critical (not sycophantic) review, and turning a voice transcript into a polished self-assessment that actually sounds like you. The article that launched CraftYourImpact.</p>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="writing-link">Read on Substack →</a>
+        </div>
+
+      </div>
+
+      <div class="writing-cta">
+        <h3>Not Another AI — a newsletter for people who actually use this stuff</h3>
+        <p>Direct, opinionated takes on AI in the real world. No hype, no greenwashing, no robots taking over. Subscribe free.</p>
+        <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="btn-primary">Subscribe on Substack</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2>13 years in product marketing. 4 years building.</h2>
+
+      <div class="about-inner">
+        <div class="about-text">
+          <p>
+            I started in creative advertising agencies learning brand from the people who actually built it: art directors, copywriters, strategists. Leading work for Nike Women, MINI Cooper, and Kennedy Space Center taught me how to create value and emotional connection through brand and product marketing. That work put me inside every stage of a product's market life: building its identity, seeding awareness, finding the right channel mix, and scaling what worked.
+          </p>
+          <p>
+            The second half of those years looked different. At MKG, a B2B SaaS digital marketing agency, I joined as the first account director hire and eventually became Managing Director. I built out the client service model and project processes from scratch, and the work itself was data-heavy: SEO, analytics, and PPC for tech companies ranging from growth-stage startups to enterprise clients like Cloudera, Informatica, and ExtraHop. That's where the analytical practice really sharpened.
+          </p>
+          <p>
+            Between the two I learned when to lead with narrative and when to lead with data, and how to hold your position when the pressure goes up. Those same skills show up in every engineering sprint review, partner negotiation, and board presentation.
+          </p>
+          <p>
+            At Discovery Education, I became their <strong>first Assessment PM, then first AI/ML PM</strong>. Writing the AI policy without guidelines, leading a 200-school beta, working directly with data science on model evaluation, and coordinating across legal, privacy, and GTM to ship.
+          </p>
+          <p>
+            I also build things on my own. CraftYourImpact is a solo-built AI performance review tool, full production stack, that deepened my practice: knowing when to trust the tooling and when to slow down and reason through it myself.
+          </p>
+          <p>
+            I'm also the fractional PM for AI-Powered Women, where I built a C-suite and entrepreneur-focused AI certification program — curriculum, instructional design, and LMS architecture — solo for their MIT-based conference. And a 2025 EdSafe AI Fellow completing a mixed-methods research project on parent AI literacy in K-12: what schools aren't communicating to families, and what a practical response looks like. Both are current.
+          </p>
+          <p>
+            I'm based in Williamstown, MA, available for remote work. On Substack I write about AI: the tradeoffs, failure modes, and what's worth slowing down for.
+          </p>
+        </div>
+
+        <div class="about-sidebar">
+          <div class="sidebar-block">
+            <p class="sidebar-heading">Currently</p>
+            <ul class="sidebar-list">
+              <li>Fractional PM, AI-Powered Women</li>
+              <li>2025 EdSafe AI Fellow</li>
+              <li>Founder, CraftYourImpact</li>
+              <li>Writing Not Another AI (Substack)</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-heading">Certifications</p>
+            <ul class="sidebar-list">
+              <li>Generative AI Leader Certification</li>
+              <li>GenAI Product Strategy (Reforge)</li>
+              <li>Technical Fluency for PMs (Reforge)</li>
+              <li>MIT No Code AI & ML</li>
+              <li>AI Product Management 101</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-heading">Education</p>
+            <ul class="sidebar-list">
+              <li>B.A. English — Dartmouth College</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-heading">Recognition</p>
+            <ul class="sidebar-list">
+              <li>2018 BrightEdge Edgie Award — Performance & Results</li>
+              <li>Discovery Education: recommended for Senior PM promotion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label">Get in Touch</p>
+        <h2>Let's work on something worth shipping</h2>
+        <div class="contact-actions">
+          <a href="mailto:jennacp@gmail.com" class="btn-primary">Send an Email</a>
+          <a href="https://www.linkedin.com/in/jhasenkampf" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>
+          <a href="https://notanotherai.substack.com" target="_blank" rel="noopener" class="btn-ghost">Read on Substack</a>
+        </div>
+        <p class="contact-email">Or reach me directly at <a href="mailto:jennacp@gmail.com">jennacp@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Jenna Hasenkampf · <a href="https://www.linkedin.com/in/jhasenkampf" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://notanotherai.substack.com" target="_blank" rel="noopener">Substack</a></p>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    // Rotating testimonials carousel
+    (function() {
+      var slides  = document.querySelectorAll('.quote-slide');
+      var dots    = document.querySelectorAll('.quote-dot');
+      var current = 0;
+      var timer;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = n;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function advance() { goTo((current + 1) % slides.length); }
+      function startTimer() { timer = setInterval(advance, 5000); }
+      function resetTimer()  { clearInterval(timer); startTimer(); }
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goTo(parseInt(this.getAttribute('data-index')));
+          resetTimer();
+        });
+      });
+
+      var carousel = document.getElementById('quoteCarousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
+        carousel.addEventListener('mouseleave', function() { startTimer(); });
+      }
+
+      startTimer();
+    })();
+
+    // Close mobile nav on outside click
+    document.addEventListener('click', function(e) {
+      const nav = document.getElementById('mobileNav');
+      const btn = document.querySelector('.nav-hamburger');
+      if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>

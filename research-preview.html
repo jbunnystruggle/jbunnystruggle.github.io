@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — The Parent-Shaped Hole in K-12 AI Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1D3045;
+      --navy-mid:  #2D4560;
+      --teal:      #2AB5A5;
+      --teal-dark: #1F9085;
+      --bg:        #F9F8F5;
+      --white:     #FFFFFF;
+      --text:      #1A1A2A;
+      --muted:     #5C6475;
+      --border:    #E4E0D8;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--text); background: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Portfolio nav strip ── */
+    .portfolio-nav {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .portfolio-nav a { color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .portfolio-nav a:hover { color: var(--teal); }
+    .portfolio-nav .nav-right { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+
+    /* ── Hero ── */
+    .research-hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #1E4A5A 100%);
+      padding: 64px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .research-hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(42,181,165,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(42,181,165,0.15);
+      border: 1px solid rgba(42,181,165,0.3);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 99px;
+    }
+    .hero-year {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.8rem;
+    }
+    .research-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .research-hero h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.68);
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.84rem;
+    }
+    .hero-meta-item span { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .hero-meta-dot {
+      width: 5px; height: 5px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: var(--teal-dark);
+      padding: 0 24px;
+    }
+    .stats-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      divide-x: 1px;
+    }
+    .stat-block {
+      padding: 24px 16px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-block:last-child { border-right: none; }
+    .stat-num {
+      display: block;
+      font-size: 2.2rem;
+      font-family: var(--serif);
+      font-weight: 400;
+      color: white;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.45;
+    }
+
+    /* ── Main content ── */
+    .research-content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .section-heading h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 24px rgba(29,48,69,0.07);
+      border: 1px solid rgba(29,48,69,0.07);
+    }
+
+    /* ── Finding blocks ── */
+    .findings-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 0;
+    }
+    .finding {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .finding-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .finding-body { }
+    .finding-body strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .finding-body p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #555;
+      margin: 0;
+    }
+
+    .finding-divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 4px solid var(--teal);
+      background: rgba(42,181,165,0.06);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 24px;
+      margin: 28px 0;
+    }
+    .pull-quote p {
+      font-size: 1.02rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Methodology ── */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .method-block {
+      background: #f8f9fc;
+      border-radius: 12px;
+      padding: 22px 24px;
+      border: 1px solid rgba(29,48,69,0.08);
+    }
+    .method-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .method-block h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .method-block p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .data-sources {
+      background: #f0f8f7;
+      border-radius: 12px;
+      padding: 22px 24px;
+      border: 1px solid rgba(42,181,165,0.15);
+    }
+    .data-sources h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 12px;
+    }
+    .source-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .source-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.6;
+    }
+    .source-list li::before {
+      content: '›';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Framework preview ── */
+    .framework-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .fw-card {
+      background: #fafbff;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(29,48,69,0.08);
+      text-align: center;
+    }
+    .fw-card .fw-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .fw-card h5 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .fw-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .framework-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── Fellowship context ── */
+    .fellowship-card {
+      background: var(--navy);
+      color: white;
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .fellowship-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(42,181,165,0.15), transparent 65%);
+      pointer-events: none;
+    }
+    .fellowship-card .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .fellowship-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .fellowship-card p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ── CTA ── */
+    .cta-bar {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal) 60%, #35CEC0);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    .cta-bar h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .cta-bar p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 24px;
+    }
+    .cta-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: white; color: var(--teal-dark); }
+    .cta-btn.ghost { border: 1.5px solid rgba(255,255,255,0.4); color: white; }
+
+    /* ── Page footer ── */
+    .page-footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+    .page-footer a { color: var(--teal); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .method-grid { grid-template-columns: 1fr; }
+      .framework-cards { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-block { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .stat-block:last-child { border-bottom: none; }
+      .finding { grid-template-columns: 64px 1fr; }
+      .card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portfolio nav strip -->
+  <nav class="portfolio-nav">
+    <a href="index.html">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Jenna Hasenkampf
+    </a>
+    <span class="nav-right">EdSafe AI Fellowship · 2025</span>
+  </nav>
+
+  <!-- Hero -->
+  <div class="research-hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="hero-badge">EdSafe AI Fellowship</span>
+        <span class="hero-year">2026 · Published</span>
+      </div>
+      <h1>The <em>Parent-Shaped Hole</em> in K-12 AI Education</h1>
+      <p class="hero-sub">A mixed-methods research study on why parents are the missing stakeholder in school AI policy — and what districts and edtech companies need to do about it.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-dot"></div>
+          <span>80</span> survey respondents
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-dot"></div>
+          <span>8</span> in-depth interviews
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-dot"></div>
+          <span>3</span> secondary data sources triangulated
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-block">
+        <span class="stat-num">13%</span>
+        <span class="stat-label">of parents received a clear AI policy from their school</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-num">48%</span>
+        <span class="stat-label">don't know if their kids use AI for schoolwork</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-num">12%</span>
+        <span class="stat-label">received any guidance on negative impacts of AI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="research-content">
+
+    <!-- Section: The Problem -->
+    <div class="section-heading">
+      <h2>The Problem</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="card" style="margin-bottom: 32px;">
+      <p style="font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 16px;">Schools are integrating AI tools faster than they're building communication infrastructure to support families. The result: students are using AI in ways most parents don't know about, can't assess, and can't contextualize at home.</p>
+      <p style="font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 20px;">This isn't a literacy gap. It's a communication vacuum — one that districts are creating through inaction and that edtech companies are reinforcing by treating parents as an afterthought in product design. Closing it requires both policy and product changes.</p>
+      <div class="pull-quote">
+        <p>"The parent-shaped hole in K-12 AI education isn't a knowledge problem — it's a design problem. Districts are shipping AI policy to students and staff while skipping the stakeholder who has to reinforce it at home."</p>
+      </div>
+    </div>
+
+    <!-- Section: Key Findings -->
+    <div class="section-heading">
+      <h2>Key Findings</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="findings-grid">
+        <div class="finding">
+          <div class="finding-num">13%</div>
+          <div class="finding-body">
+            <strong>Only 13% of parents received a clear AI policy from their school</strong>
+            <p>Despite rapid K-12 AI adoption, most schools haven't built the communication infrastructure to tell parents what tools are in use, under what conditions, and what protections are in place for students.</p>
+          </div>
+        </div>
+        <div class="finding-divider"></div>
+        <div class="finding">
+          <div class="finding-num">48%</div>
+          <div class="finding-body">
+            <strong>Nearly half of parents don't know if their child uses AI for schoolwork</strong>
+            <p>This isn't parental indifference. When the school hasn't named AI as a tool in use, parents have no reason to ask — and students have no framework for disclosure.</p>
+          </div>
+        </div>
+        <div class="finding-divider"></div>
+        <div class="finding">
+          <div class="finding-num">12%</div>
+          <div class="finding-body">
+            <strong>Only 12% received guidance on negative impacts</strong>
+            <p>Even among parents who did receive some AI communication, it focused almost exclusively on capability — what AI can do — not on child-specific risks: misinformation, over-reliance, privacy exposure, or developmental impact.</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);">Primary research triangulated with Center for Democracy & Technology, Common Sense Media, and Walton-GSV-Gallup national data.</p>
+    </div>
+
+    <!-- Section: Methodology -->
+    <div class="section-heading">
+      <h2>Methodology</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="method-grid">
+        <div class="method-block">
+          <div class="method-icon">📋</div>
+          <h4>Quantitative Survey</h4>
+          <p>80 respondents; parents of K-12 students across multiple school settings. Questions covering AI policy awareness, observed student AI use, confidence in understanding AI risks, and current guidance received from schools.</p>
+        </div>
+        <div class="method-block">
+          <div class="method-icon">🎙️</div>
+          <h4>Qualitative Interviews</h4>
+          <p>8 in-depth interviews selected to reflect variation in school type, geographic context, and level of prior AI engagement. Interviews surfaced attitudes, barriers, and what parents actually want from schools on this topic.</p>
+        </div>
+      </div>
+      <div class="data-sources">
+        <h4>Secondary Data Triangulation</h4>
+        <ul class="source-list">
+          <li>Center for Democracy &amp; Technology (CDT) — student privacy and AI governance research</li>
+          <li>Common Sense Media — youth digital wellbeing and parental awareness data</li>
+          <li>Walton-GSV-Gallup — national K-12 AI adoption and stakeholder readiness tracking</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section: Framework (teaser) -->
+    <div class="section-heading">
+      <h2>Outputs: What Districts and Edtech Need to Do</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="card" style="margin-bottom: 32px;">
+      <p style="font-size: 0.97rem; line-height: 1.8; color: #444; margin-bottom: 24px;">The research produces an overview of risks and opportunities for district leaders and edtech executives — focused on closing the parent communication gap through concrete policy and product changes.</p>
+      <div class="framework-cards">
+        <div class="fw-card">
+          <div class="fw-icon">📣</div>
+          <h5>Parent Communication Design</h5>
+          <p>79% of surveyed parents believe responsibility for children's AI education should be shared between schools and parents, they just need to be included</p>
+        </div>
+        <div class="fw-card">
+          <div class="fw-icon">⚠️</div>
+          <h5>Product Gaps</h5>
+          <p>A prioritized list of what parents want to learn and their confidence gap based on K-12 parent responses</p>
+        </div>
+        <div class="fw-card">
+          <div class="fw-icon">🔧</div>
+          <h5>Implementation Pathways</h5>
+          <p>Sequenced steps for districts at different stages of AI adoption, from no policy to mature governance</p>
+        </div>
+      </div>
+      <p class="framework-note">Extended content available in the published presentation.</p>
+    </div>
+
+    <!-- Fellowship context card -->
+    <div class="fellowship-card">
+      <p class="eyebrow">About the Research</p>
+      <h3>EdSafe AI Alliance Women in AI Fellowship, 2025</h3>
+      <p>Selected as one of 30 fellows for the EdSafe AI Alliance's Women in AI Fellowship. The capstone research project was presented to a global cohort and published in the EdSafe 2025 Fellow Gallery. Fellowship included direct briefings from leaders shaping K-12 AI policy: EU AI Act implementation teams, Khan Academy's AI product leadership, and Families + AI advocacy organizations.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-bar">
+      <h3>Read the Full Research</h3>
+      <p>Published in the EdSafe AI Fellowship 2025 Gallery. Full methodology, findings, and implementation framework.</p>
+      <div class="cta-links">
+        <a href="https://docs.google.com/presentation/d/1OfXYRZDXBtr5SzR4d7bGkQa0wSkOSzmF/edit?usp=sharing" target="_blank" rel="noopener" class="cta-btn primary">View Full Presentation →</a>
+        <a href="https://www.edsafeai.org/fellowship/gallery-2025" target="_blank" rel="noopener" class="cta-btn ghost">EdSafe Fellow Gallery</a>
+        <a href="index.html" class="cta-btn ghost">← Back to Portfolio</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    Research by <a href="index.html">Jenna Hasenkampf</a> · EdSafe AI Alliance Women in AI Fellowship · Published 2026
+  </footer>
+
+</body>
+</html>
