@@ -828,6 +828,88 @@
     }
     .quote-dot.active { background: var(--teal); }
 
+    /* ── Mobile Accordions ── */
+    .case-toggle { display: none; }
+    .about-read-more { display: none; }
+    .writing-toggle { display: none; }
+
+    @media (max-width: 900px) {
+      .case-body { display: none; }
+      .case-card.is-open .case-body { display: block; }
+
+      .case-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 16px;
+        padding-top: 14px;
+        border: none;
+        border-top: 1px solid var(--border);
+        background: none;
+        cursor: pointer;
+      }
+      .toggle-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+      .toggle-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+        color: var(--teal);
+      }
+      .case-card.is-open .toggle-icon { transform: rotate(180deg); }
+
+      .about-extra { display: none; }
+      .about-extra.is-open { display: block; }
+      .about-read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .rmicon { transition: transform 0.25s ease; display: block; }
+      .about-read-more.is-open .rmicon { transform: rotate(180deg); }
+
+      .writing-grid { display: none; }
+      #writing.is-open .writing-grid { display: grid; }
+      .writing-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 24px;
+        padding: 14px 0;
+        border: none;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: none;
+        cursor: pointer;
+      }
+      .writing-toggle-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+      #writing.is-open .writing-toggle .toggle-icon { transform: rotate(180deg); }
+    }
+
   </style>
 </head>
 <body>
@@ -1026,6 +1108,7 @@
                 <span class="metric-label">of teachers using assessment editing tool</span>
               </div>
             </div>
+            <button class="case-toggle" aria-expanded="false"><span class="toggle-label">View details</span><svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
           </div>
           <div class="case-body">
             <p class="case-summary">Joined as the company's first Assessment PM, then first AI/ML PM — built 0→1 generative AI product for a K-12 global platform. Owned the full lifecycle: governance frameworks and AI policy, UX design and teacher feedback loops, ML model evaluation, and launch to a 14M-user platform.</p>
@@ -1054,6 +1137,7 @@
                 <span class="metric-label">0-1 Certification tracks created</span>
               </div>
             </div>
+            <button class="case-toggle" aria-expanded="false"><span class="toggle-label">View details</span><svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
           </div>
           <div class="case-body">
             <p class="case-summary">Fractional PM for an MIT-affiliated startup transitioning from a flagship conference model to a year-round AI learning ecosystem. Designed, wrote, and built the full certification curriculum solo — custom-designed Kajabi module pages, role-specific frameworks, and research-backed content across three topic areas.</p>
@@ -1074,14 +1158,15 @@
             <p class="case-role">2025 Women in AI Fellow · 2025–2026</p>
             <div class="case-metrics">
               <div class="metric">
-                <span class="metric-num">80</span>
-                <span class="metric-label">survey respondents</span>
+                <span class="metric-num">13%</span>
+                <span class="metric-label">of parents received a clear AI policy from their school</span>
               </div>
               <div class="metric">
-                <span class="metric-num">8</span>
-                <span class="metric-label">in-depth interviews</span>
+                <span class="metric-num">79%</span>
+                <span class="metric-label">believe parents + schools should be guiding child AI literacy</span>
               </div>
             </div>
+            <button class="case-toggle" aria-expanded="false"><span class="toggle-label">View details</span><svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
           </div>
           <div class="case-body">
             <p class="case-summary">Selected for a global cohort of 30 for the 2025 EdSafe AI Alliance - Women in AI Fellowship. Leading a solo mixed-methods capstone on parent AI literacy — addressing what I called "the parent-shaped hole" in K-12 AI education.</p>
@@ -1121,6 +1206,7 @@
                 <span class="tag">GitHub</span>
               </div>
             </div>
+            <button class="case-toggle" aria-expanded="false"><span class="toggle-label">View details</span><svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
           </div>
           <div class="case-body">
             <p class="case-summary">Built end-to-end solo — product, design, and technical direction. Transforms scattered work documentation into polished performance review narratives. In pre-launch validation.</p>
@@ -1141,6 +1227,8 @@
       <p class="section-label">Writing</p>
       <h2>Thinking out loud about AI</h2>
       <p class="section-intro">Writing about AI to share learnings and expand access to working with AI — the tradeoffs, the failure modes, and the things the 30-seconds-to-production crowd glosses over.</p>
+
+      <button class="writing-toggle" aria-expanded="false"><span class="writing-toggle-label">View articles</span><svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
 
       <div class="writing-grid">
 
@@ -1207,6 +1295,8 @@
           <p>
             I started in creative advertising agencies learning brand from the people who actually built it: art directors, copywriters, strategists. Leading work for Nike Women, MINI Cooper, and Kennedy Space Center taught me how to create value and emotional connection through brand and product marketing. That work put me inside every stage of a product's market life: building its identity, seeding awareness, finding the right channel mix, and scaling what worked.
           </p>
+          <button class="about-read-more" aria-expanded="false"><span class="read-more-text">Read more</span><svg class="rmicon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="about-extra">
           <p>
             The second half of those years looked different. At MKG, a B2B SaaS digital marketing agency, I joined as the first account director hire and eventually became Managing Director. I built out the client service model and project processes from scratch, and the work itself was data-heavy: SEO, analytics, and PPC for tech companies ranging from growth-stage startups to enterprise clients like Cloudera, Informatica, and ExtraHop. That's where the analytical practice really sharpened.
           </p>
@@ -1225,6 +1315,7 @@
           <p>
             I'm based in Williamstown, MA, available for remote work. On Substack I write about AI: the tradeoffs, failure modes, and what's worth slowing down for.
           </p>
+          </div>
         </div>
 
         <div class="about-sidebar">
@@ -1328,6 +1419,39 @@
 
       startTimer();
     })();
+
+    // Work card accordions
+    document.querySelectorAll('.case-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var card = btn.closest('.case-card');
+        var isOpen = card.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+        btn.querySelector('.toggle-label').textContent = isOpen ? 'Collapse' : 'View details';
+      });
+    });
+
+    // Writing section accordion
+    var writingToggle = document.querySelector('.writing-toggle');
+    var writingSection = document.getElementById('writing');
+    if (writingToggle && writingSection) {
+      writingToggle.addEventListener('click', function() {
+        var isOpen = writingSection.classList.toggle('is-open');
+        writingToggle.setAttribute('aria-expanded', String(isOpen));
+        writingToggle.querySelector('.writing-toggle-label').textContent = isOpen ? 'Collapse' : 'View articles';
+      });
+    }
+
+    // About section read more
+    var readMoreBtn = document.querySelector('.about-read-more');
+    var aboutExtra  = document.querySelector('.about-extra');
+    if (readMoreBtn && aboutExtra) {
+      readMoreBtn.addEventListener('click', function() {
+        var isOpen = aboutExtra.classList.toggle('is-open');
+        readMoreBtn.classList.toggle('is-open', isOpen);
+        readMoreBtn.setAttribute('aria-expanded', String(isOpen));
+        readMoreBtn.querySelector('.read-more-text').textContent = isOpen ? 'Read less' : 'Read more';
+      });
+    }
 
     // Close mobile nav on outside click
     document.addEventListener('click', function(e) {
